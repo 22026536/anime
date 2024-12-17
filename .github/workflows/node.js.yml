@@ -1,46 +1,35 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them,
-# build the source code and run tests across different versions of Node.js
-
-name: frontend
+name: CI/CD for Frontend
 
 on:
   push:
-    branches: [ "main" ]
     paths:
       - 'frontend/**'
-      - ".github/workflows/frontend.yaml"
-  pull_request:
-    branches: [ "main" ]
-    paths:
-      - 'frontend/**'
-      - ".github/workflows/frontend.yaml"
+    branches:
+      - main
 
 jobs:
-  build:
-
+  build-frontend:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    defaults:
+      run:
+        working-directory: ./frontend
 
     steps:
-    - name: Checkout repository (with submodules)
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
+        run: npm install rollup
+        run: npm install @swc/core
 
-    - name: Install additional tools
-      run: |
-        npm install rollup
-        npm install @swc/core
+      - name: Build React app
+        run: npm run build
 
-    - name: Build the project
-      run: npm run build --if-present
+      - name: Deploy Frontend (nếu cần)
+        run: echo "Deploying Frontend..."
