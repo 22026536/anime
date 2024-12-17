@@ -18,7 +18,7 @@ export default function FirstScreen() {
             <div style={{fontSize: '30px',color: 'white'}} className='intro'>Mastering Japanese through Anime</div>
             <Box sx={{width :'100vw', display: 'flex', justifyContent: 'center', marginTop: '10vh'}}>
             <Box sx ={{width: '200px', height: '60px', backgroundColor: 'white', borderRadius: '30px', display: 'flex', justifyContent: 'center', gap:'12px', alignItems: 'center', cursor: 'pointer'}} className= 'button' onClick= {click}>
-              <p style={{color: 'black', fontSize: '20px'}}>Explores</p>
+              <p style={{color: 'black', fontSize: '20px'}}>Explore</p>
               <FaArrowUpRightFromSquare style={{width: '20px', height: 'auto', color: 'black'}}/>
             </Box>
             </Box>
