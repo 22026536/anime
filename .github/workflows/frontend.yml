@@ -7,43 +7,12 @@ on:
   push:
     paths:
       - 'frontend/**'  # Chỉ kích hoạt khi có thay đổi trong frontend
-    branches: [ "main" ]
-  pull_request:
-    paths:
-      - 'frontend/**'  # Chỉ kích hoạt khi có thay đổi trong frontend
-    branches: [ "main" ]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: |
-        cd frontend
-        npm i rollupname: frontend
-
-on:
-  push:
-    paths:
-      - 'frontend/**'  # Chỉ kích hoạt khi có thay đổi trong frontend
-    branches:
+    branches: 
       - main
   pull_request:
     paths:
       - 'frontend/**'  # Chỉ kích hoạt khi có thay đổi trong frontend
-    branches:
+    branches: 
       - main
 
 jobs:
@@ -53,7 +22,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [18.x]  # Sử dụng Node.js phiên bản 18.x
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -74,12 +43,12 @@ jobs:
         cd frontend  # Chuyển vào thư mục frontend
         npm run build  # Chạy lệnh build để tạo ứng dụng React (sử dụng Vite)
 
-    - run: |
-        cd frontend
-        npm i @swc/core
-    - run: |
-        cd frontend
-        npm i
-    - run: |
-        cd frontend  
-        npm run build  
+    - name: Install additional dependencies (swc/core)
+      run: |
+        cd frontend  # Chuyển vào thư mục frontend
+        npm install @swc/core  # Cài đặt swc/core nếu cần thiết
+
+    - name: Final Build (if needed)
+      run: |
+        cd frontend  # Chuyển vào thư mục frontend
+        npm run build  # Chạy lại lệnh build cuối cùng nếu cần
