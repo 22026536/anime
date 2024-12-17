@@ -29,7 +29,7 @@ export default function Bayes() {
           console.error('Lỗi khi đăng nhập:', response.statusText);
         }
       } catch (error) {
-        console.error('Lỗi mạng :', error);
+        console.error('Lỗi mạng:', error);
       }
     };
   

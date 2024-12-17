@@ -32,7 +32,48 @@ jobs:
         cache: 'npm'
     - run: |
         cd frontend
-        npm i rollup
+        npm i rollupname: frontend
+
+on:
+  push:
+    paths:
+      - 'frontend/**'  # Chỉ kích hoạt khi có thay đổi trong frontend
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'frontend/**'  # Chỉ kích hoạt khi có thay đổi trong frontend
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v4  # Checkout mã nguồn
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'  # Cài đặt cache cho npm
+
+    - name: Install dependencies
+      run: |
+        cd frontend  # Chuyển vào thư mục frontend
+        npm install  # Cài đặt tất cả các dependencies
+
+    - name: Build React app using Vite
+      run: |
+        cd frontend  # Chuyển vào thư mục frontend
+        npm run build  # Chạy lệnh build để tạo ứng dụng React (sử dụng Vite)
+
     - run: |
         cd frontend
         npm i @swc/core
