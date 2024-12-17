@@ -1,0 +1,47 @@
+.logo{
+    width: 70px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 100%;
+    animation: logo-spin 5s infinite linear;
+}
+@keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes slideDown {
+    0% {
+        transform: translateY(-100px) rotate(0deg); /* Rơi từ trên xuống và nghiêng 15 độ sang phải */
+        opacity: 1; /* Bắt đầu trong suốt */
+      }
+      50% {
+        transform: translateY(0) rotate(25deg); /* Vị trí cuối cùng, không còn nghiêng */
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0) rotate(0); /* Vị trí cuối cùng, không còn nghiêng */
+        opacity: 1;
+      }
+  }
+
+.web__name{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.logo__text{
+    animation: slideDown 1s ease-out;
+    text-shadow: 2px 2px 4px rgba(86, 85, 89, 0.4);
+}
+.navbar__child:hover .rotate-icon{
+    transform: rotate(180deg);
+    transition: transform 0.4s ease-in-out;
+}
+.rotate-icon{
+    transform: rotate(0deg); 
+   transition: transform 0.4s ease-in-out;
+}

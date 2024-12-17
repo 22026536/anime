@@ -1,0 +1,13 @@
+@keyframes fly {
+
+    from{
+        margin-top: -20px;
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.Child{
+    animation: fly 0.5s ease;
+}

@@ -1,0 +1,19 @@
+/* .tag:hover{
+    background-color: #e6e5e3;
+} */
+
+/* .tag:hover .arrow {
+    transform: rotate(180deg);
+  } */
+.tag{
+    cursor: pointer;
+}
+.arrow {
+    transition: all 0.4s ease;
+}
+.logout{
+    cursor: pointer;
+}
+.logout:hover {
+background-color: #e6e5e3;
+}

@@ -1,0 +1,19 @@
+.filmImagediv:hover .icon{
+opacity: 1;
+}
+.icon{
+    opacity: 0;
+    }
+
+ .filmImagediv:hover   .filmImage{
+    transform: scale(1.2);
+}
+
+.infoImg:hover{
+    border-radius: 0 40px 0 40px;
+}
+
+.infoImg{
+    border-radius:  40px 0 40px 0;
+    transition: all 0.3s ease;
+}

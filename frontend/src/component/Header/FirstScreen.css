@@ -1,0 +1,48 @@
+.button{
+    animation: diep 1.2s ease;
+}
+.aisatsu{
+    animation: diep2 1.2s linear infinite;
+}
+.intro{
+    animation: diep3 1.2s ease ;
+}
+
+@keyframes diep{
+
+    from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+}
+@keyframes diep2{
+
+    0%{
+        
+        rotate: -5deg;
+    }
+    30%{
+        rotate: 0deg;
+    }
+    60%{
+        rotate: 5deg;
+    }
+    80%{
+        rotate: 0deg;
+    }
+    100%{
+        rotate: -5deg;
+    }
+}
+@keyframes diep3{
+
+    from{
+        top: '-25%';
+        opacity: 0
+    }
+    to{
+        opacity: 1;
+    }
+}
