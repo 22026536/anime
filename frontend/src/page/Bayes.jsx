@@ -1,12 +1,9 @@
-import  Box from '@mui/material/Box'
-import React, { useState } from 'react'
-import Header from '../component/Header/Header'
-import { useTheme } from '@emotion/react'
+import { useTheme } from '@emotion/react';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { useEffect } from 'react';
-import FilmCard from '../Film/FilmCard';
+import Box from '@mui/material/Box';
+import React, { useEffect, useState } from 'react';
 import FilmPage from '../Film/FilmPage';
-import Footer from '../component/Footer/Footer';
+import Header from '../component/Header/Header';
 export default function Bayes() {
   const [data, setData] = useState()
   const [loading, setLoading] = useState(true)
@@ -32,7 +29,7 @@ export default function Bayes() {
           console.error('Lỗi khi đăng nhập:', response.statusText);
         }
       } catch (error) {
-        console.error('Lỗi mạng:', error);
+        console.error('Lỗi mạng :', error);
       }
     };
   
